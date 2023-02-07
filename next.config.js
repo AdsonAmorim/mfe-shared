@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
+
 const { NextFederationPlugin } = require("@module-federation/nextjs-mf");
+const dependencies = require("./package.json").dependencies;
 
 const nextConfig = {
   experimental: {
@@ -19,6 +21,17 @@ const nextConfig = {
         },
         exposes: {
           "./button": "./src/components/Button",
+        },
+        shared: {
+          ...dependencies,
+          "react-dom": {
+            requiredVersion: dependencies["react-dom"],
+            singleton: true,
+          },
+          react: {
+            requiredVersion: dependencies["react"],
+            singleton: true,
+          },
         },
       })
     );
