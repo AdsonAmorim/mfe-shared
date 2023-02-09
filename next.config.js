@@ -4,11 +4,7 @@ const { NextFederationPlugin } = require("@module-federation/nextjs-mf");
 const dependencies = require("./package.json").dependencies;
 
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-  webpack: (config, options) => {
-    const { isServer } = options;
+  webpack: (config) => {
     config.experiments = { topLevelAwait: true, layers: true };
 
     config.plugins.push(
