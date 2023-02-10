@@ -10,13 +10,13 @@ const nextConfig = {
     config.plugins.push(
       new NextFederationPlugin({
         name: "shared",
-        filename: "static/chuncks/sharedEntry.js",
+        filename: "static/chunks/sharedEntry.js",
         extraOptions: {
           automaticAsyncBoundary: true,
           exposePages: true,
         },
         exposes: {
-          "./button": "./src/components/Button",
+          "./button": "./src/components/Button/index.tsx",
         },
         shared: {
           ...dependencies,
