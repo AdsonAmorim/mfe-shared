@@ -17,6 +17,7 @@ const nextConfig = {
         },
         exposes: {
           "./button": "./src/components/Button/index.tsx",
+          "./text-field": "./src/components/TextField/index.tsx",
         },
         shared: {
           ...dependencies,
